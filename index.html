@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Phùng Việt Hà</title>
+    <!-- Thư viện Font Awesome cho icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Reset & General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font tương tự mẫu */
+        }
+        body {
+            background-color: #f8f9fa; /* Nền màu xám nhạt */
+            padding: 20px;
+            display: flex;
+            justify-content: center; /* Căn giữa CV */
+            align-items: center;
+            min-height: 100vh; /* Đảm bảo chiếm hết chiều cao màn hình */
+        }
+        .cv-container {
+            max-width: 1000px; /* Độ rộng CV */
+            width: 100%;
+            display: flex;
+            background: #fff; /* Nền trắng cho CV */
+            box-shadow: 0 0 20px rgba(0,0,0,0.1); /* Bóng đổ nhẹ */
+            border-radius: 8px; /* Bo góc nhẹ */
+            overflow: hidden; /* Đảm bảo các phần tử con không vượt ra ngoài */
+        }
+
+        /* Cột bên trái (Sidebar) */
+        .sidebar {
+            width: 35%; /* Chiếm 35% chiều rộng */
+            background-color: #f8f1f1; /* Nền màu hồng nhạt */
+            padding: 40px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Căn giữa các phần tử trong sidebar */
+            text-align: center;
+        }
+        .avatar {
+            width: 150px; /* Kích thước ảnh */
+            height: 150px;
+            border-radius: 50%; /* Làm tròn ảnh */
+            object-fit: cover; /* Đảm bảo ảnh không bị méo */
+            margin-bottom: 30px;
+            border: 4px solid #fff; /* Viền trắng cho avatar */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .sidebar-section {
+            width: 100%; /* Đảm bảo section chiếm hết chiều rộng */
+            margin-bottom: 35px;
+        }
+        .sidebar-section h2 {
+            font-size: 1.3em;
+            color: #2c3e50; /* Màu tiêu đề đậm */
+            border-bottom: 2px solid #e74c3c; /* Gạch chân màu đỏ cam */
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            text-align: left; /* Căn trái tiêu đề */
+        }
+        .contact-list, .skills-list, .language-list, .soft-skills-list {
+            list-style: none;
+            padding-left: 0;
+            text-align: left; /* Căn trái danh sách */
+        }
+        .contact-list li, .skills-list li, .language-list li, .soft-skills-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #34495e; /* Màu chữ nội dung */
+            font-size: 1em;
+        }
+        .contact-list li i, .language-list li i, .soft-skills-list li i {
+            color: #e74c3c; /* Màu icon đỏ cam */
+            width: 20px; /* Đảm bảo icon thẳng hàng */
+        }
+        .skills-list {
+            list-style: square; /* Biểu tượng ô vuông */
+            padding-left: 20px;
+            color: #34495e;
+            line-height: 1.8;
+        }
+        .reference-section {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #777;
+            border-top: 1px dashed #ccc;
+            padding-top: 15px;
+        }
+        .reference-section h3 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        /* Cột bên phải (Main Content) */
+        .main-content {
+            width: 65%; /* Chiếm 65% chiều rộng */
+            padding: 40px 30px;
+        }
+        .header-name {
+            border-bottom: 3px solid #e74c3c; /* Gạch chân màu đỏ cam */
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            text-align: right; /* Căn phải phần tên và chức danh */
+        }
+        .header-name h1 {
+            font-size: 2.8em;
+            color: #2c3e50; /* Màu tên đậm */
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .header-name p {
+            font-size: 1.4em;
+            color: #e74c3c; /* Màu chức danh đỏ cam */
+            font-weight: 500;
+        }
+        .section-block {
+            margin-bottom: 35px;
+        }
+        .section-block h2 {
+            font-size: 1.5em;
+            color: #2c3e50; /* Màu tiêu đề đậm */
+            border-bottom: 2px solid #eee; /* Gạch chân màu xám nhạt */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: left; /* Căn trái tiêu đề */
+        }
+        .job-item, .education-item {
+            margin-bottom: 25px;
+        }
+        .job-item h3, .education-item h3 {
+            font-size: 1.2em;
+            color: #e74c3c; /* Màu tiêu đề công việc/học vấn */
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .job-item .company-name, .education-item .school-name {
+            font-weight: 600;
+            color: #34495e; /* Màu tên công ty/trường */
+            margin-bottom: 5px;
+            display: block;
+        }
+        .job-item ul {
+            padding-left: 20px;
+            color: #34495e;
+            line-height: 1.7;
+            margin-top: 10px;
+        }
+        .job-item ul li {
+            margin-bottom: 8px;
+        }
+        .summary-text {
+            font-size: 1.1em;
+            color: #34495e;
+            text-align: justify; /* Căn đều hai bên */
+        }
+        .achievements-list {
+            padding-left: 20px;
+            color: #34495e;
+            line-height: 1.7;
+            margin-top: 10px;
+        }
+        .achievements-list li {
+            margin-bottom: 8px;
+            list-style-type: square; /* Biểu tượng ô vuông cho thành tích */
+        }
+        .interests-list {
+            list-style: none;
+            padding-left: 0;
+            color: #34495e;
+            line-height: 1.7;
+            margin-top: 10px;
+        }
+        .interests-list li {
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cv-container {
+                flex-direction: column;
+            }
+            .sidebar, .main-content {
+                width: 100%;
+            }
+            .sidebar {
+                padding-bottom: 20px; /* Giảm padding dưới cho sidebar */
+            }
+            .main-content {
+                padding: 30px 20px; /* Điều chỉnh padding cho content */
+            }
+            .header-name {
+                text-align: center; /* Căn giữa tên/chức danh */
+            }
+            .sidebar-section h2, .section-block h2 {
+                text-align: center; /* Căn giữa các tiêu đề section */
+            }
+            .contact-list, .skills-list, .language-list, .soft-skills-list, .achievements-list, .interests-list {
+                text-align: left; /* Giữ nguyên căn trái cho danh sách */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <!-- Cột bên trái -->
+        <div class="sidebar">
+            <img src="C:\Users\PHUNG VIET HA\Downloads\z7728362763376_5672797aced638ac89b58849b6156b08.jpg" alt="Ảnh đại diện Phùng Việt Hà" class="avatar">
+            
+            <div class="sidebar-section">
+                <h2>Thông Tin Liên Hệ</h2>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-phone"></i> 0779356288</li>
+                    <li><i class="fa-solid fa-envelope"></i> haml14022005@gmail.com</li>
+                    <li><i class="fa-solid fa-calendar-days"></i> 14/02/2005</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Thượng Cát, Hà Nội</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Kỹ Năng Chuyên Môn</h2>
+                <ul class="skills-list">
+                    <li>Quản trị dòng tiền và ngân sách chiến lược</li>
+                    <li>Phân tích báo cáo tài chính và dự báo thị trường</li>
+                    <li>Am hiểu quy định thuế và tuân thủ pháp luật</li>
+                    <li>Sử dụng SAP, Excel nâng cao, QuickBooks</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Kỹ Năng Mềm</h2>
+                <ul class="soft-skills-list">
+                    <li>Lãnh đạo và quản lý đội ngũ</li>
+                    <li>Kỹ năng giao tiếp và thuyết phục cấp cao</li>
+                    <li>Giải quyết vấn đề phức tạp</li>
+                    <li>Làm việc nhóm và hợp tác đa bộ phận</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h2>Ngôn ngữ</h2>
+                <ul class="language-list">
+                    <li>Tiếng Anh (Cơ bản)</li>
+                    <li>Tiếng Pháp (Cơ bản)</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section reference-section">
+                <h2>Người Tham Chiếu</h2>
+                <p><strong>Phạm Thị Ngọc Ánh</strong></p>
+                <p>Giám đốc Tài chính - Công ty TNHH Dịch vụ Tài chính Ngọc Ánh </p>
+                <p><i class="fa-solid fa-phone"></i> 0987654321</p>
+                <p><i class="fa-solid fa-envelope"></i> ngocanh0801@gmail.com</p>
+            </div>
+        </div>
+
+        <!-- Cột bên phải -->
+        <div class="main-content">
+            <div class="header-name">
+                <h1>Phùng Việt Hà</h1>
+                <p>Giám đốc tài chính | Chuyên gia quản trị tài chính chiến lược</p>
+            </div>
+
+            <div class="section-block">
+                <h2>Mục Tiêu Nghề Nghiệp</h2>
+                <p class="summary-text">
+                    Chuyên gia tài chính với 5 năm kinh nghiệm quản trị dòng tiền, lập kế hoạch ngân sách và phân tích rủi ro tại các doanh nghiệp ngành dịch vụ và sản xuất. Có thành tích cắt giảm chi phí vận hành 18% và tăng tỷ lệ lợi nhuận ròng 22% trong vòng 2 năm tại công ty trước. Tư duy chiến lược, kỹ năng lãnh đạo đội ngũ 10+ nhân viên tài chính và am hiểu đầy đủ quy định thuế và tuân thủ pháp luật tài chính Việt Nam.
+                </p>
+            </div>
+
+            <div class="section-block">
+                <h2>Kinh Nghiệm Làm Việc</h2>
+                <div class="job-item">
+                    <h3>Giám đốc Tài chính</h3>
+                    <span class="company-name">Công ty TNHH Dịch vụ Tài chính Ngọc Ánh | 06/2030 - Hiện tại</span>
+                    <ul>
+                        <li>Xây dựng và triển khai chiến lược tài chính dài hạn, giúp tăng doanh thu từ 120 tỷ VNĐ lên 210 tỷ VNĐ trong 3 năm.</li>
+                        <li>Quản lý toàn bộ dòng tiền, ngân sách và báo cáo tài chính cho 5 chi nhánh trên toàn quốc.</li>
+                        <li>Đàm phán hợp đồng vay vốn với các ngân hàng, giảm lãi suất vay từ 8.5% xuống 7.2% tiết kiệm chi phí hàng năm hơn 3 tỷ VNĐ.</li>
+                        <li>Xây dựng hệ thống phân tích rủi ro tài chính, giúp giảm thiểu tổn thất do biến động thị trường lên 25%.</li>
+                    </ul>
+                </div>
+
+                <div class="job-item">
+                    <h3>Trưởng Phòng Tài chính</h3>
+                    <span class="company-name">Công ty Cổ phần Sản xuất Hà Ánh | 08/2027 - 05/2030</span>
+                    <ul>
+                        <li>Quản lý công tác thu hồi nợ, giảm tỷ lệ nợ xấu từ 12% xuống 4% trong vòng 1 năm.</li>
+                        <li>Lập kế hoạch ngân sách hàng năm và theo dõi thực hiện, giúp kiểm soát chi phí vượt ngưỡng dưới 5%.</li>
+                        <li>Hợp tác với đội ngũ kế toán chuẩn hóa hệ thống báo cáo tài chính theo tiêu chuẩn Việt Nam.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h2>Học Vấn</h2>
+                <div class="education-item">
+                    <h3>Cử nhân Kế toán và Tài chính</h3>
+                    <span class="school-name">Học Viện Tài Chính | 09/2023 - 06/2027</span>
+                    <p>GPA: 3.2/4.0 | Xếp loại Giỏi</p>
+                    <p>Chủ đề tốt nghiệp: "Ứng dụng mô hình tối ưu hóa dòng tiền cho doanh nghiệp vừa và nhỏ"</p>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <h2>Sở Thích</h2>
+                <ul class="interests-list">
+                    <li>Đọc sách tài chính, chơi thể thao, du lịch khám phá</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Phùng Việt Hà. All rights reserved.</p>
+    </footer>
+</body>
+</html>

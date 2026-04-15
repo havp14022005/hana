@@ -1,0 +1,238 @@
+/* styles.css */
+
+/* Reset & General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font tương tự mẫu */
+}
+body {
+    background-color: #f8f9fa; /* Nền màu xám nhạt */
+    padding: 20px;
+    display: flex;
+    justify-content: center; /* Căn giữa CV */
+    align-items: flex-start; /* Căn chỉnh lên trên */
+    min-height: 100vh; /* Đảm bảo chiếm hết chiều cao màn hình */
+}
+.cv-container {
+    max-width: 1000px; /* Độ rộng CV */
+    width: 100%;
+    display: flex;
+    background: #fff; /* Nền trắng cho CV */
+    box-shadow: 0 0 20px rgba(0,0,0,0.1); /* Bóng đổ nhẹ */
+    border-radius: 8px; /* Bo góc nhẹ */
+    overflow: hidden; /* Đảm bảo các phần tử con không vượt ra ngoài */
+}
+
+/* Cột bên trái (Sidebar) */
+.sidebar {
+    width: 35%; /* Chiếm 35% chiều rộng */
+    background-color: #f8f1f1; /* Nền màu hồng nhạt */
+    padding: 40px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa các phần tử trong sidebar */
+    text-align: center;
+}
+.avatar {
+    width: 150px; /* Kích thước ảnh */
+    height: 150px;
+    border-radius: 50%; /* Làm tròn ảnh */
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+    margin-bottom: 30px;
+    border: 4px solid #fff; /* Viền trắng cho avatar */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.sidebar-section {
+    width: 100%; /* Đảm bảo section chiếm hết chiều rộng */
+    margin-bottom: 35px;
+}
+.sidebar-section h2 {
+    font-size: 1.3em;
+    color: #2c3e50; /* Màu tiêu đề đậm */
+    border-bottom: 2px solid #e74c3c; /* Gạch chân màu đỏ cam */
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    text-align: left; /* Căn trái tiêu đề */
+}
+.contact-list, .skills-list, .language-list, .soft-skills-list {
+    list-style: none;
+    padding-left: 0;
+    text-align: left; /* Căn trái danh sách */
+}
+.contact-list li, .skills-list li, .language-list li, .soft-skills-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    color: #34495e; /* Màu chữ nội dung */
+    font-size: 1em;
+}
+.contact-list li i, .language-list li i, .soft-skills-list li i {
+    color: #e74c3c; /* Màu icon đỏ cam */
+    width: 20px; /* Đảm bảo icon thẳng hàng */
+}
+.skills-list {
+    list-style: square; /* Biểu tượng ô vuông */
+    padding-left: 20px;
+    color: #34495e;
+    line-height: 1.8;
+}
+.skills-list li {
+    margin-bottom: 8px;
+}
+.reference-section {
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #777;
+    border-top: 1px dashed #ccc;
+    padding-top: 15px;
+    width: 100%; /* Đảm bảo chiếm hết chiều rộng */
+}
+.reference-section h3 {
+    color: #2c3e50;
+    margin-bottom: 5px;
+    text-align: left; /* Căn trái */
+}
+.reference-section p {
+    margin-bottom: 5px;
+}
+
+/* Cột bên phải (Main Content) */
+.main-content {
+    width: 65%; /* Chiếm 65% chiều rộng */
+    padding: 40px 30px;
+}
+.header-name {
+    border-bottom: 3px solid #e74c3c; /* Gạch chân màu đỏ cam */
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    text-align: right; /* Căn phải phần tên và chức danh */
+}
+.header-name h1 {
+    font-size: 2.8em;
+    color: #2c3e50; /* Màu tên đậm */
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+.header-name p {
+    font-size: 1.4em;
+    color: #e74c3c; /* Màu chức danh đỏ cam */
+    font-weight: 500;
+}
+.section-block {
+    margin-bottom: 35px;
+}
+.section-block h2 {
+    font-size: 1.5em;
+    color: #2c3e50; /* Màu tiêu đề đậm */
+    border-bottom: 2px solid #eee; /* Gạch chân màu xám nhạt */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-align: left; /* Căn trái tiêu đề */
+}
+.job-item, .education-item {
+    margin-bottom: 25px;
+}
+.job-item h3, .education-item h3 {
+    font-size: 1.2em;
+    color: #e74c3c; /* Màu tiêu đề công việc/học vấn */
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.job-item .company-name, .education-item .school-name {
+    font-weight: 600;
+    color: #34495e; /* Màu tên công ty/trường */
+    margin-bottom: 5px;
+    display: block;
+}
+.job-item ul {
+    padding-left: 20px;
+    color: #34495e;
+    line-height: 1.7;
+    margin-top: 10px;
+}
+.job-item ul li {
+    margin-bottom: 8px;
+}
+.summary-text {
+    font-size: 1.1em;
+    color: #34495e;
+    text-align: justify; /* Căn đều hai bên */
+}
+.achievements-list {
+    padding-left: 20px;
+    color: #34495e;
+    line-height: 1.7;
+    margin-top: 10px;
+}
+.achievements-list li {
+    margin-bottom: 8px;
+    list-style-type: square; /* Biểu tượng ô vuông cho thành tích */
+}
+.interests-list {
+    list-style: none;
+    padding-left: 0;
+    color: #34495e;
+    line-height: 1.7;
+    margin-top: 10px;
+}
+.interests-list li {
+    margin-bottom: 8px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    font-size: 0.9em;
+    color: #777;
+    width: 100%; /* Đảm bảo footer trải hết chiều rộng */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cv-container {
+        flex-direction: column;
+    }
+    .sidebar, .main-content {
+        width: 100%;
+    }
+    .sidebar {
+        padding-bottom: 20px; /* Giảm padding dưới cho sidebar */
+        align-items: flex-start; /* Căn trái khi chuyển sang cột */
+        text-align: left;
+    }
+    .sidebar-section h2, .section-block h2 {
+        text-align: left; /* Căn trái tiêu đề */
+    }
+    .main-content {
+        padding: 30px 20px; /* Điều chỉnh padding cho content */
+    }
+    .header-name {
+        text-align: center; /* Căn giữa tên/chức danh */
+    }
+    .avatar {
+        margin: 0 auto 30px auto; /* Căn giữa avatar */
+    }
+}
+@media (max-width: 480px) {
+    .header-name h1 {
+        font-size: 2em;
+    }
+    .header-name p {
+        font-size: 1.1em;
+    }
+    .sidebar-section h2, .section-block h2 {
+        font-size: 1.2em;
+    }
+    .job-item h3, .education-item h3 {
+        font-size: 1.1em;
+    }
+    .contact-list li, .skills-list li, .language-list li, .soft-skills-list li, .summary-text, .job-item ul li, .achievements-list li, .interests-list li {
+        font-size: 0.95em;
+    }
+}
